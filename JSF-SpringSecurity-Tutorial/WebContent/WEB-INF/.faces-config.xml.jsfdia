@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#*" PATH="/*" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#*:0" NAME="item" PATH="/*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="userHome::#secure#user#home.xhtml"
+    NAME="output" PATH="/secure/user/home.xhtml"
+    TARGET="rules:#secure#user#home.xhtml" TITLE="userHome" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="adminHome::#secure#admin#home.xhtml"
+    NAME="output1" PATH="/secure/admin/home.xhtml"
+    TARGET="rules:#secure#admin#home.xhtml" TITLE="adminHome" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT
+    ID="dataTableExample::#secure#admin#dataTable.xhtml" NAME="output2"
+    PATH="/secure/admin/dataTable.xhtml"
+    TARGET="rules:#secure#admin#dataTable.xhtml"
+    TITLE="dataTableExample" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#secure#admin#dataTable.xhtml"
+  PATH="/secure/admin/dataTable.xhtml" SHAPE="272,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#secure#admin#home.xhtml"
+  PATH="/secure/admin/home.xhtml" SHAPE="32,465,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#secure#user#home.xhtml"
+  PATH="/secure/user/home.xhtml" SHAPE="32,353,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

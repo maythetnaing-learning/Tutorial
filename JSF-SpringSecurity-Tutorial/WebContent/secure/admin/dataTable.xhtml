@@ -1,0 +1,24 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head></h:head>
+	<h:body>
+	<h:form>
+		<p:dataTable var="userDt" value="#{dataTableExampleBean.userList}" >
+			<p:column headerText="USER_ID">
+				<h:outputText value="#{userDt.userid}" ></h:outputText>
+			</p:column>
+			<p:column headerText="USER_NAME">
+				<h:outputText value="#{userDt.username}" ></h:outputText>
+			</p:column>
+				<p:column headerText="PASSWORD">
+				<h:outputText value="#{userDt.password}" ></h:outputText>
+			</p:column>
+			<p:column>
+				<h:commandButton value="Delete" action="dataTableExampleBean.doDelete()" ></h:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+	</h:body>
+</ui:composition>

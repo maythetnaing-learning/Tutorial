@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	<h:body>
+    <h2>Log In</h2> 
+		<h:form id="loginForm" prependId="false">              
+	    <!-- Id's must not be changed to support spring security check -->
+	    <h:panelGrid columns="2">
+		    <h:outputLabel for="j_username" value="User: * " />  
+		    <h:inputText id="j_username" required="true" label="username" />  	                   
+		    <h:outputLabel for="j_password" value="Password: * " />  
+		    <h:inputSecret id="j_password" label="password" required="true" />  
+	    </h:panelGrid>      
+	    <h:commandButton type="submit" id="login" value="Login"  action="#{loginBean.doLogin}" />
+	   </h:form>
+	</h:body>
+</ui:composition>
