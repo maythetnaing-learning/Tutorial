@@ -2,14 +2,64 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mtn.tutorial1.mapper.UserInfoMapper">
 	<select id="getAllUser" resultMap="getUserResult">
-			SELECT 
-				FIRST_NAME + ' ' + LAST_NAME AS USER_NAME,
-				USER_ID,
-				PASSWORD
-			FROM 
-				USER_INFO
+		SELECT 
+		  CONCAT(FIRST_NAME,' ', LAST_NAME) AS USER_NAME,
+		  USER_ID,
+		  PASSWORD 
+		FROM
+		  USER_INFO 
+	</select>
+
+	<select id="getStudentDisobedient" resultMap="studentDisobedient">
+	SELECT 																			
+		D.DISCIPLINE_ID,																		
+		D.DESCRIPTION,																		
+		U.FIRST_NAME, 																		
+		U.LAST_NAME,																		
+		U.USER_ID,																		
+		S.STUDENT_ID,																		
+		S.STUDENT_ROLL_NO,																		
+		U.GENDER,																		
+		C.CLASS_NAME,																		
+		SEC.SECTION_NAME,																		
+		SD.COMMITED_DATE																		
+	FROM 																			
+		DISCIPLINE D 																		
+	LEFT JOIN																			
+		STD_DISCIPLINE SD ON SD.DISCIPLINE_ID = D.DISCIPLINE_ID																		
+	LEFT JOIN 																			
+		STUDENT S ON SD.STUDENT_ID = S.STUDENT_ID																		
+	LEFT JOIN 																			
+		USER_INFO U ON S.STUDENT_ID = U.ID																		
+	LEFT JOIN																			
+		CLASS_INFO C ON C.CLASS_ID = S.CLASS_ID																		
+	LEFT JOIN																			
+		BATCH B ON C.BATCH_ID = B.BATCH_ID																		
+	LEFT JOIN																			
+		SECTION SEC ON SEC.SECTION_ID = S.SECTION_ID																		
+	WHERE 																			
+		D.DISCIPLINE_ID = 1																		
+	AND																			
+		U.DELETE_FLG = 0																		
+	AND																			
+		C.DELETE_FLG = 0																		
+	AND																			
+		B.BATCH_STATUS = 0																		
+	AND																			
+		SEC.DELETE_FLG = 0																		
+	ORDER BY 																			
+		U.USER_ID, 																		
+		SD.COMMITED_DATE																		
 	</select>
 	
+	<resultMap type="mtn.tutorial1.dto.StudentDisobedientDto" id="studentDisobedient">
+		<result property="studentRollNo" column="STUDENT_ID" />
+		<result property="commitedDate" column="COMMITED_DATE" />
+		<collection property="commitedDateList" ofType="java.lang.String">
+        <result column="COMMITED_DATE" />
+    </collection>
+	</resultMap>
+		
 	<resultMap type="mtn.tutorial1.dto.LoginUser" id="getUserResult">
 		<result property="username" column="USER_NAME" />
 		<result property="userid" column="USER_ID" />

@@ -1,24 +1,38 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
-	<h:head></h:head>
+	xmlns:p="http://primefaces.org/ui"
+>
+	<h:head>
+		<link
+			href="${facesContext.externalContext.requestContextPath}/css/style.css" rel='stylesheet' type='text/css' />
+	</h:head>
 	<h:body>
 	<h:form>
-		<p:dataTable var="userDt" value="#{dataTableExampleBean.userList}" >
-			<p:column headerText="USER_ID">
-				<h:outputText value="#{userDt.userid}" ></h:outputText>
+ 		<p:dataTable id="stdDisobedientTbl" var="stdDisobedient" value="#{dataTableExampleBean.studentDisobedientDtoList}" rowIndexVar="rowIndex" >
+			<p:column headerText="STUDENT ROLL NO" 
+								rendered="#{dataTableExampleBean.displayRow(rowIndex, stdDisobedient.studentRollNo)}"
+								rowspan="#{dataTableExampleBean.rowSpanSize}">		
+				<h:outputText value="#{stdDisobedient.studentRollNo}"  rendered="#{dataTableExampleBean.showFlg}" />		
 			</p:column>
-			<p:column headerText="USER_NAME">
-				<h:outputText value="#{userDt.username}" ></h:outputText>
+ 			<p:column headerText="COUNT"
+ 								rendered="#{dataTableExampleBean.showFlg}"
+ 								rowspan="#{dataTableExampleBean.rowSpanSize}">
+				<h:outputText value="#{dataTableExampleBean.rowSpanSize}" rendered="#{dataTableExampleBean.showFlg}" />		
 			</p:column>
-				<p:column headerText="PASSWORD">
-				<h:outputText value="#{userDt.password}" ></h:outputText>
-			</p:column>
-			<p:column>
-				<h:commandButton value="Delete" action="dataTableExampleBean.doDelete()" ></h:commandButton>
-			</p:column>
+	    <p:column>
+ 				<h:outputText value="#{stdDisobedient.commitedDate}" />		 
+	    </p:column>
+	    <p:column>
+ 				<p:commandButton value="Delete"
+						update="stdDisobedientTbl"
+						actionListener="#{dataTableExampleBean.doDelete}"
+						immediate="true" process="@this"> 
+				</p:commandButton> 
+	    </p:column>
 		</p:dataTable>
+		
 	</h:form>
 	</h:body>
 </ui:composition>
