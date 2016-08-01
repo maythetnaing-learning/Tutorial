@@ -50,8 +50,7 @@
 	ORDER BY 																			
 		U.USER_ID, 																		
 		SD.COMMITED_DATE																		
-	</select>
-	
+	</select> 
 	<resultMap type="mtn.tutorial1.dto.StudentDisobedientDto" id="studentDisobedient">
 		<result property="studentRollNo" column="STUDENT_ID" />
 		<result property="commitedDate" column="COMMITED_DATE" />

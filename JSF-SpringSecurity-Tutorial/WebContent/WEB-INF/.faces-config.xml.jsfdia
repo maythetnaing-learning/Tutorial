@@ -13,6 +13,9 @@
     PATH="/secure/admin/dataTable.xhtml"
     TARGET="rules:#secure#admin#dataTable.xhtml"
     TITLE="dataTableExample" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="userPopup::#secure#admin#userPopup.xhtml"
+    NAME="output3" PATH="/secure/admin/userPopup.xhtml"
+    TARGET="rules:#secure#admin#userPopup.xhtml" TITLE="userPopup" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#secure#admin#dataTable.xhtml"
@@ -21,4 +24,6 @@
   PATH="/secure/admin/home.xhtml" SHAPE="32,465,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#secure#user#home.xhtml"
   PATH="/secure/user/home.xhtml" SHAPE="32,353,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#secure#admin#userPopup.xhtml"
+  PATH="/secure/admin/userPopup.xhtml" SHAPE="288,353,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

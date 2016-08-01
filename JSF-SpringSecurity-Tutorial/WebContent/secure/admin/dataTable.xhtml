@@ -10,7 +10,7 @@
 	</h:head>
 	<h:body>
 	<h:form>
- 		<p:dataTable id="stdDisobedientTbl" var="stdDisobedient" value="#{dataTableExampleBean.studentDisobedientDtoList}" rowIndexVar="rowIndex" >
+ 		<p:dataTable id="stdDisobedientTbl" var="stdDisobedient" value="#{dataTableExampleBean.existingStdDisobedientDtoList}" rowIndexVar="rowIndex" >
 			<p:column headerText="STUDENT ROLL NO" 
 								rendered="#{dataTableExampleBean.displayRow(rowIndex, stdDisobedient.studentRollNo)}"
 								rowspan="#{dataTableExampleBean.rowSpanSize}">		
@@ -33,6 +33,23 @@
 	    </p:column>
 		</p:dataTable>
 		
+		<p:commandButton id="addStudent" value="Add Student"
+			actionListener="#{dataTableExampleBean.viewUserPopup}"
+			immediate="true">
+			<p:ajax event="dialogReturn"
+				listener="#{dataTableExampleBean.onStudentSelect}"
+				update="newStdDisobedientTbl" />
+		</p:commandButton>
+
+		<p:dataTable id="newStdDisobedientTbl" var="newStdDisobedient" value="#{dataTableExampleBean.newStdDisobedientDtoList}" rowIndexVar="rowIndex" >
+			<p:column>
+				<h:outputText value="#{rowIndex}" />
+			</p:column>
+	    <p:column>
+ 				<h:outputText value="#{newStdDisobedient.firstName}" />		 
+	    </p:column>
+		</p:dataTable>
+				
 	</h:form>
 	</h:body>
 </ui:composition>
