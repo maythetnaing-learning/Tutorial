@@ -8,4 +8,5 @@ import mtn.tutorial1.dto.StudentDisobedientDto;;
 public interface UserInfoMapper {
 	public List<LoginUser> getAllUser();
 	public List<StudentDisobedientDto> getStudentDisobedient();
+	public Integer getUserCount();
 }

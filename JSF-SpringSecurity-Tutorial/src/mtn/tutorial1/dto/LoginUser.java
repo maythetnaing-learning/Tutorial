@@ -9,6 +9,8 @@ public class LoginUser implements Serializable{
 	private String userid;
 	private String username;
 	private String password;
+	private Integer offset;
+	private Integer limit;
 	public Integer getRoleID() {
 		return roleID;
 	}
@@ -35,6 +37,22 @@ public class LoginUser implements Serializable{
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Integer getOffset() {
+		return offset;
+	}
+
+	public void setOffset(Integer offset) {
+		this.offset = offset;
+	}
+
+	public Integer getLimit() {
+		return limit;
+	}
+
+	public void setLimit(Integer limit) {
+		this.limit = limit;
 	}
 	
 }

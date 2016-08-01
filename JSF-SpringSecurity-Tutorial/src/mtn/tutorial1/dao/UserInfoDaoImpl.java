@@ -28,4 +28,9 @@ public class UserInfoDaoImpl implements UserInfoDao {
 		return userInfoMapper.getStudentDisobedient();
 	}
 
+	@Override
+	public Integer getUserCount() { 
+		return userInfoMapper.getUserCount();
+	}
+
 }
